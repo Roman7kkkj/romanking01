@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Romanking</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <script defer src="JS/script.js"></script>
+</head>
+<body>
+
+  <!-- Tela de início -->
+  <div id="start-screen">
+      <h1>press!</h1>
+      <div class="cloud cloud1"></div>
+      <div class="cloud cloud2"></div>
+  </div>
+
+  <!-- Vídeo de fundo -->
+  <video autoplay muted loop playsinline id="bg-video" poster="IMG/fallback.jpg">
+    <source src="VIDEO/video07.webm" type="video/webm" />
+    <source src="VIDEO/video07.mp4" type="video/mp4" />
+    Seu navegador não suporta vídeo HTML5.
+</video>
+
+  <audio id="bg-audio" loop>
+      <source src="AUDIO/music.mp3" type="audio/mpeg" />
+      Seu navegador não suporta áudio HTML5.
+  </audio>
+
+  <!-- Overlay opcional -->
+  <div class="overlay"></div>
+
+  <!-- Container do perfil -->
+  <div class="container">
+      <div class="profile-box">
+          <img src="IMG/lillpeep.webp" alt="Foto de Perfil" class="avatar" />
+          <h2 class="nome">romank1ng</h2>
+          <p class="descricao">"Seu potencial existe, mesmo que a dúvida tente escondê-lo".</p>
+        
+<a class="role-card" href="https://discord.gg/EuKb94P5AR" target="_blank">
+  <img src="https://img.icons8.com/fluency/48/discord-logo.png" alt="Discord" />
+  <span>Discord</span>
+</a>
+
+<a class="role-card" href="https://www.tiktok.com/@romankingkkj7" target="_blank">
+  <img src="https://img.icons8.com/fluency/48/tiktok.png" alt="TikTok" />
+  <span>TikTok</span>
+</a>
+
+<a class="role-card" href="https://www.youtube.com/@Romank1ngg" target="_blank">
+  <img src="https://img.icons8.com/fluency/48/youtube-play.png" alt="YouTube" />
+  <span>YouTube</span>
+</a>
+
+          <div class="volume-control neon">
+              <label for="volume">🔊</label>
+              <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5" />
+          </div>
+      </div>
+  </div>
+
+</body>
+</html>

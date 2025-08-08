@@ -1,0 +1,291 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Vídeo de fundo */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0; /* não negativo para evitar problemas no Edge */
+    opacity: 0.4;
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  
+    z-index: 1;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5));
+}
+
+/* Container */
+.container {
+    backdrop-filter: blur(6px);
+    background: rgba(0,0,0,0.6);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    width: 360px;
+    max-width: 90%;
+    min-height: 500px;
+   box-shadow: 0 0 30px rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+    opacity: 0.95;
+    transition: transform 0.1s ease;
+    transform-style: preserve-3d;
+    position: relative;
+    z-index: 2
+
+}
+
+
+/* Avatar */
+.avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.3);
+    object-fit: cover;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* Nome e descrição */
+.nome {
+    background: linear-gradient(to right, #00000017, white);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: clamp(18px, 5vw, 26px);
+    margin-bottom: 12px; /* Espaço abaixo do nome */
+}
+
+.descricao {
+    font-style: italic;
+    font-size: clamp(12px, 2.5vw, 16px);
+    color: #ccc;
+    margin-bottom: 20px; /* Espaço abaixo da descrição */
+}
+
+/* Volume */
+.volume-control.neon {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: #888;
+}
+
+.volume-control.neon label {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.volume-control.neon input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 120px;
+  height: 4px;
+  background: #333;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.volume-control.neon input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.volume-control.neon input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+.volume-control.neon input[type="range"]::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+  border: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+/* Tela de início */
+#start-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+    overflow: hidden;
+}
+#start-screen h1 {
+    color: #fff;
+    font-size: clamp(28px, 8vw, 48px);
+    letter-spacing: 5px;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 0 10px #000;
+}
+
+/* Nuvens */
+.cloud {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.6) 0%, transparent 70%);
+    filter: blur(30px);
+    z-index: 1;
+    opacity: 0.6;
+    border-radius: 50%;
+}
+.cloud1 { top: 20%; left: -350px; animation: moveClouds 60s linear infinite; }
+.cloud2 { top: 60%; left: -400px; animation: moveClouds 80s linear infinite; animation-delay: 20s; }
+@keyframes moveClouds { 0% { transform: translateX(0); } 100% { transform: translateX(150vw); } }
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+        min-height: auto;
+    }
+    .avatar {
+        width: 100px;
+        height: 100px;
+    }
+    .volume-control.neon input[type="range"] {
+        width: 100px;
+    }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+    .avatar {
+        width: 80px;
+        height: 80px;
+    }
+    .nome {
+        font-size: clamp(16px, 6vw, 22px);
+    }
+    .descricao {
+        font-size: clamp(11px, 3vw, 14px);
+    }
+    .tag {
+        font-size: 10px;
+        padding: 3px 8px;
+    }
+    .volume-control.neon input[type="range"] {
+        width: 90px;
+    }
+}
+
+/* Efeito de fade out + scale down para a tela de início */
+#start-screen.fade-out {
+    animation: fadeScaleOut 1s forwards;
+}
+
+@keyframes fadeScaleOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}
+#start-screen h1 {
+  text-shadow: 0 0 4px #fff, 0 0 8px #aaa;
+}
+
+
+
+.role-card {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.03);
+  color: #eee;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px;
+  gap: 15px;
+  cursor: pointer;
+  text-decoration: none; /* remove sublinhado */
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.role-card:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+  transform: scale(1.02);
+}
+
+.role-card img {
+  width: 24px;
+  height: 24px;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+  opacity: 0.85;
+}
+
+.role-card:hover img {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.role-card + .role-card {
+  margin-top: 10px;
+}
